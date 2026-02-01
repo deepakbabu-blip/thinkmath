@@ -107,10 +107,20 @@
   }
 
   // ---- Quiz with scoring ----
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
   function startQuiz(topicId) {
     const topic = MATH_TOPICS[topicId];
     if (!topic || !topic.problems.length) return;
     state.topicId = topicId;
+    state.sessionProblems = shuffle([...topic.problems]);
     state.problemIndex = 0;
     state.hintIndex = 0;
     state.hintsUsedThisProblem = 0;
@@ -126,9 +136,8 @@
   }
 
   function getCurrentProblem() {
-    const topic = MATH_TOPICS[state.topicId];
-    if (!topic) return null;
-    return topic.problems[state.problemIndex] || null;
+    if (!state.sessionProblems) return null;
+    return state.sessionProblems[state.problemIndex] || null;
   }
 
   function updateQuizScoreDisplay() {
@@ -147,8 +156,7 @@
     state.questionsSeen += 1;
     streakCountEl.textContent = state.questionsSeen;
 
-    const topic = MATH_TOPICS[state.topicId];
-    const total = topic.problems.length;
+    const total = state.sessionProblems.length;
     progressText.textContent = `Question ${state.problemIndex + 1} of ${total}`;
     updateQuizScoreDisplay();
 
@@ -208,18 +216,22 @@
     const selected = document.querySelector('input[name="answer"]:checked');
     const selectedIndex = selected ? parseInt(selected.value, 10) : -1;
     const correct = selectedIndex === problem.correctChoiceIndex;
-    if (correct) state.score += 1;
-    updateQuizScoreDisplay();
 
-    feedbackText.textContent = correct
-      ? "That's the idea! Nice work—you've got it."
-      : "Not quite this time—and that's okay! Use the hints to think it through, or move on to the next one when you're ready.";
-    feedbackArea.classList.remove('hidden');
-    answerArea.querySelectorAll('input').forEach(i => { i.disabled = true; });
-    const checkBtn = answerArea.querySelector('.btn-continue');
-    if (checkBtn) {
-      checkBtn.textContent = 'Next question';
-      checkBtn.onclick = nextProblem;
+    if (correct) {
+      state.score += 1;
+      updateQuizScoreDisplay();
+      feedbackText.textContent = "That's the idea! Nice work—you've got it.";
+      feedbackArea.classList.remove('hidden');
+      answerArea.querySelectorAll('input').forEach(i => { i.disabled = true; });
+      const checkBtn = answerArea.querySelector('.btn-continue');
+      if (checkBtn) {
+        checkBtn.textContent = 'Next question';
+        checkBtn.onclick = nextProblem;
+      }
+    } else {
+      feedbackText.textContent = "Not quite—try another option! You can pick a different answer and check again.";
+      feedbackArea.classList.remove('hidden');
+      // Keep choices enabled so they can try again; don't change the button
     }
     encouragementEl.textContent = pickEncouragement();
   }
@@ -278,9 +290,8 @@
   }
 
   function nextProblem() {
-    const topic = MATH_TOPICS[state.topicId];
     state.problemIndex += 1;
-    if (state.problemIndex >= topic.problems.length) {
+    if (state.problemIndex >= state.sessionProblems.length) {
       finishSession();
       return;
     }
@@ -290,7 +301,7 @@
 
   function finishSession() {
     const topic = MATH_TOPICS[state.topicId];
-    const total = topic.problems.length;
+    const total = state.sessionProblems.length;
     let msg = `You worked through ${total} question${total === 1 ? '' : 's'} in ${topic.name}. `;
     if (state.totalHintsUsed > 0) {
       msg += `Using hints when you need them is great practice—well done. `;

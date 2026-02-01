@@ -53,7 +53,14 @@ const MATH_TOPICS = {
           'If you divide both sides by 2, what does the left side become? Then you\'ll have a simpler equation.',
           'After that, you\'ll have something like (x + 4) = 9. What would you do next to find x?'
         ]
-      }
+      },
+      { id: 'ab4', question: 'To solve 5x = 20, what do you do to both sides?', type: 'multiple_choice', choices: ['Add 5', 'Subtract 5', 'Multiply by 5', 'Divide by 5'], correctChoiceIndex: 3, hints: ['x is being multiplied by 5. What operation undoes multiplication?', 'To get x by itself, we undo the multiplication. Division undoes multiplication.'] },
+      { id: 'ab5', question: 'What does "isolate the variable" mean?', type: 'multiple_choice', choices: ['Get the variable alone on one side of the equation', 'Move all numbers to the left', 'Multiply both sides by zero', 'Add the variable to both sides'], correctChoiceIndex: 0, hints: ['We want to find what the variable equals. So we need the variable on one side and a number on the other.', 'Isolating means getting it by itself—undoing whatever is being done to it.'] },
+      { id: 'ab6', question: 'In x − 4 = 10, what step gets x by itself?', type: 'multiple_choice', choices: ['Add 4 to both sides', 'Subtract 4 from both sides', 'Multiply both sides by 4', 'Divide both sides by 4'], correctChoiceIndex: 0, hints: ['Right now 4 is being subtracted from x. What undoes subtraction?', 'Adding 4 to both sides keeps the equation balanced and removes the −4 from the left.'] },
+      { id: 'ab7', question: 'Which is an equation?', type: 'multiple_choice', choices: ['3x + 5', '2x + 1 = 9', 'x + 7', '4n'], correctChoiceIndex: 1, hints: ['An equation has an equals sign and states that two expressions are equal.', 'Here 2x + 1 = 9 says "2x + 1" has the same value as "9".'] },
+      { id: 'ab8', question: 'When we "do the same to both sides," why?', type: 'multiple_choice', choices: ['To make the problem longer', 'To keep the equation true (both sides stay equal)', 'To get rid of the variable', 'To add more numbers'], correctChoiceIndex: 1, hints: ['If two things are equal and we add 3 to one, we must add 3 to the other to keep them equal.', 'Keeping the equation balanced lets us simplify step by step until we find x.'] },
+      { id: 'ab9', question: 'In 2x + 3 = 11, after subtracting 3 from both sides we get ___.', type: 'multiple_choice', choices: ['2x = 8', '2x = 14', 'x = 4', '2x + 3 = 8'], correctChoiceIndex: 0, hints: ['Subtracting 3 from the left: 2x + 3 − 3 = 2x. What is 11 − 3?', 'Both sides: left becomes 2x, right becomes 8. So 2x = 8.'] },
+      { id: 'ab10', question: 'Which operation "undoes" division?', type: 'multiple_choice', choices: ['Subtraction', 'Addition', 'Multiplication', 'Division again'], correctChoiceIndex: 2, hints: ['If x is divided by 2, we have x ÷ 2. What brings x back?', 'Multiplying by 2 undoes dividing by 2: (x ÷ 2) × 2 = x.'] }
     ]
   },
   linear_equations: {
@@ -107,7 +114,14 @@ const MATH_TOPICS = {
           'If y = 2x + 1 and also y = 5 − x, then 2x + 1 and 5 − x are the same number. So 2x + 1 = 5 − x.',
           'Once you have one equation in one variable, solve for x. Then use either original equation to find y.'
         ]
-      }
+      },
+      { id: 'le4', question: 'What does the slope of a line tell you?', type: 'multiple_choice', choices: ['Where it crosses the y-axis', 'How steep it is and whether it rises or falls', 'Its length', 'The number of points on it'], correctChoiceIndex: 1, hints: ['Slope is rise over run—how much y changes when x increases by 1.', 'Positive slope: line goes up left to right. Negative: goes down.'] },
+      { id: 'le5', question: 'Two lines are perpendicular. What do you know about their slopes?', type: 'multiple_choice', choices: ['They are equal', 'Their product is −1', 'One is zero', 'They are both negative'], correctChoiceIndex: 1, hints: ['Perpendicular lines meet at a right angle. Their slopes have a special relationship.', 'If one slope is m, the other is −1/m (or the product m × (other) = −1).'] },
+      { id: 'le6', question: 'In y = mx + b, what is m?', type: 'multiple_choice', choices: ['The y-intercept', 'The slope', 'The x-intercept', 'A constant'], correctChoiceIndex: 1, hints: ['The letter m is traditionally used for slope in y = mx + b.', 'b is the y-intercept; m is the slope.'] },
+      { id: 'le7', question: 'A line goes through (1, 2) and (3, 6). How could you find its slope?', type: 'multiple_choice', choices: ['Add 1 and 3', 'Use (6 − 2) / (3 − 1)', 'Use (3 − 1) / (6 − 2)', 'Multiply 2 and 6'], correctChoiceIndex: 1, hints: ['Slope = rise over run = change in y over change in x.', 'Rise = 6 − 2, run = 3 − 1. So slope = (6 − 2)/(3 − 1).'] },
+      { id: 'le8', question: 'If two lines have different slopes, they ___.', type: 'multiple_choice', choices: ['Are parallel', 'Intersect at exactly one point', 'Are the same line', 'Never cross'], correctChoiceIndex: 1, hints: ['Different slopes mean the lines are not parallel.', 'Non-parallel lines in the plane intersect at exactly one point.'] },
+      { id: 'le9', question: 'To graph y = 2x + 1, a good first step is to ___.', type: 'multiple_choice', choices: ['Solve for x', 'Plot the y-intercept (0, 1)', 'Set x = 0 only', 'Find the vertex'], correctChoiceIndex: 1, hints: ['The y-intercept is where x = 0. Here b = 1, so (0, 1) is on the line.', 'Plot (0, 1), then use the slope 2 to go up 2, right 1 to get another point.'] },
+      { id: 'le10', question: 'When solving a system by substitution, you ___.', type: 'multiple_choice', choices: ['Add the equations', 'Replace one variable with an expression from the other equation', 'Graph both lines', 'Multiply both equations by 2'], correctChoiceIndex: 1, hints: ['Substitution means "substitute" one variable for an equivalent expression.', 'Solve one equation for y (or x), then replace that variable in the other equation.'] }
     ]
   },
   exponents_roots: {
@@ -149,7 +163,14 @@ const MATH_TOPICS = {
           'When we raise a power to a power, we multiply the exponents: (aⁿ)ᵐ = aⁿᵐ. So (3²)⁴ = 3^(2×4).',
           'Multiply the two exponents: 2 × 4. That single exponent is what you raise 3 to.'
         ]
-      }
+      },
+      { id: 'er4', question: 'What does 5⁰ equal?', type: 'multiple_choice', choices: ['0', '1', '5', 'Undefined'], correctChoiceIndex: 1, hints: ['By definition, any nonzero number to the power 0 is 1.', 'So 5⁰ = 1, 10⁰ = 1, etc.'] },
+      { id: 'er5', question: 'What is 2⁵ ÷ 2² in the form 2 raised to a power?', type: 'multiple_choice', choices: ['2³', '2⁷', '2¹⁰', '2^(5/2)'], correctChoiceIndex: 0, hints: ['When we divide same bases, we subtract the exponents: aⁿ ÷ aᵐ = a^(n−m).', 'So 2⁵ ÷ 2² = 2^(5−2) = 2³.'] },
+      { id: 'er6', question: '√9 equals ___.', type: 'multiple_choice', choices: ['−3 only', '3 only', '3 or −3', '9'], correctChoiceIndex: 1, hints: ['The square root symbol √ means the principal (non-negative) square root.', 'So √9 = 3, not −3. The equation x² = 9 has two solutions: 3 and −3.'] },
+      { id: 'er7', question: 'Simplify 10³ × 10².', type: 'multiple_choice', choices: ['10⁵', '10⁶', '10¹', '100⁵'], correctChoiceIndex: 0, hints: ['Same base: when multiplying, add the exponents.', '10³ × 10² = 10^(3+2) = 10⁵.'] },
+      { id: 'er8', question: '(2³)² = ___.', type: 'multiple_choice', choices: ['2⁵', '2⁶', '2⁹', '4⁶'], correctChoiceIndex: 1, hints: ['Power of a power: multiply the exponents. (aⁿ)ᵐ = a^(n×m).', '(2³)² = 2^(3×2) = 2⁶.'] },
+      { id: 'er9', question: 'What is 7¹?', type: 'multiple_choice', choices: ['0', '1', '7', '14'], correctChoiceIndex: 2, hints: ['Any number to the power 1 is itself.', 'So 7¹ = 7, x¹ = x.'] },
+      { id: 'er10', question: '√(a²) for a ≥ 0 equals ___.', type: 'multiple_choice', choices: ['−a', 'a', 'a²', '|a|'], correctChoiceIndex: 1, hints: ['If a is non-negative, then a² is its square, and √(a²) is the non-negative number whose square is a².', 'That number is a. (When a < 0 we need |a|.)'] }
     ]
   },
   geometry: {
@@ -203,7 +224,14 @@ const MATH_TOPICS = {
           'Supplementary angles add to 180°. So if one is 70°, the other must be 180° − 70°.',
           'Complementary angles add to 90°. Supplementary add to 180°. Which one are we using here?'
         ]
-      }
+      },
+      { id: 'g4', question: 'The sum of the angles in any triangle is ___.', type: 'multiple_choice', choices: ['90°', '180°', '360°', 'It depends on the triangle'], correctChoiceIndex: 1, hints: ['This is true for every triangle—right, acute, or obtuse.', 'You can see it by drawing a line through one vertex parallel to the opposite side.'] },
+      { id: 'g5', question: 'In a right triangle, the side opposite the right angle is called the ___.', type: 'multiple_choice', choices: ['Leg', 'Hypotenuse', 'Base', 'Altitude'], correctChoiceIndex: 1, hints: ['The right angle has two sides (the legs) and one side across from it.', 'That longest side is the hypotenuse.'] },
+      { id: 'g6', question: 'Two angles that add to 90° are ___.', type: 'multiple_choice', choices: ['Supplementary', 'Complementary', 'Vertical', 'Equal'], correctChoiceIndex: 1, hints: ['Complementary angles add to 90°. Supplementary add to 180°.', 'So two angles that add to 90° are complementary.'] },
+      { id: 'g7', question: 'The area of a rectangle is ___.', type: 'multiple_choice', choices: ['length + width', '2 × (length + width)', 'length × width', 'length ÷ width'], correctChoiceIndex: 2, hints: ['Area is how many unit squares fit inside.', 'For a rectangle, that is length × width.'] },
+      { id: 'g8', question: 'In a right triangle with legs 3 and 4, the hypotenuse has length ___.', type: 'multiple_choice', choices: ['5', '7', '12', '25'], correctChoiceIndex: 0, hints: ['Use the Pythagorean theorem: a² + b² = c². Here 3² + 4² = 9 + 16 = 25.', 'So c² = 25, and c = 5 (length is positive).'] },
+      { id: 'g9', question: 'Vertical angles are ___.', type: 'multiple_choice', choices: ['Supplementary', 'Complementary', 'Equal', 'Always 90°'], correctChoiceIndex: 2, hints: ['Vertical angles are the opposite angles when two lines cross.', 'They are always equal.'] },
+      { id: 'g10', question: 'The perimeter of a square with side length s is ___.', type: 'multiple_choice', choices: ['s²', '4s', '2s', 's/4'], correctChoiceIndex: 1, hints: ['Perimeter is the distance around the figure.', 'A square has four equal sides, so perimeter = s + s + s + s = 4s.'] }
     ]
   },
   quadratics: {
@@ -252,7 +280,14 @@ const MATH_TOPICS = {
           'The formula is often written as x = −b/(2a). So it involves b, a, and a minus sign.',
           'You can also get it by completing the square on ax² + bx + c. The vertex x is where the squared term is zero.'
         ]
-      }
+      },
+      { id: 'q4', question: 'The graph of y = x² opens ___.', type: 'multiple_choice', choices: ['Downward', 'Upward', 'To the left', 'To the right'], correctChoiceIndex: 1, hints: ['When the x² coefficient is positive, the parabola opens upward.', 'When it is negative, the parabola opens downward.'] },
+      { id: 'q5', question: 'To solve x² = 9, we take the ___.', type: 'multiple_choice', choices: ['Square root of both sides', 'Square of both sides', 'Log of both sides', 'Only positive root'], correctChoiceIndex: 0, hints: ['Taking the square root of both sides gives x = ±√9.', 'So x = 3 or x = −3.'] },
+      { id: 'q6', question: 'x² + 6x + 9 is a perfect square: it equals ___.', type: 'multiple_choice', choices: ['(x + 3)²', '(x + 6)²', '(x + 9)²', '(x − 3)²'], correctChoiceIndex: 0, hints: ['(x + 3)² = x² + 2·3·x + 3² = x² + 6x + 9.', 'So x² + 6x + 9 = (x + 3)².'] },
+      { id: 'q7', question: 'The discriminant b² − 4ac tells you ___.', type: 'multiple_choice', choices: ['The vertex', 'How many real solutions ax² + bx + c = 0 has', 'The y-intercept', 'The slope'], correctChoiceIndex: 1, hints: ['If discriminant > 0: two real solutions. If = 0: one (repeated). If < 0: no real solutions.', 'It appears under the square root in the quadratic formula.'] },
+      { id: 'q8', question: 'Factoring x² − 9 gives ___.', type: 'multiple_choice', choices: ['(x − 9)(x + 1)', '(x − 3)(x + 3)', '(x − 3)²', '(x + 3)²'], correctChoiceIndex: 1, hints: ['This is a difference of two squares: a² − b² = (a − b)(a + b).', 'x² − 9 = x² − 3² = (x − 3)(x + 3).'] },
+      { id: 'q9', question: 'If a quadratic has no x-intercepts, its graph ___.', type: 'multiple_choice', choices: ['Crosses the x-axis twice', 'Touches the x-axis once', 'Never crosses the x-axis', 'Is a straight line'], correctChoiceIndex: 2, hints: ['x-intercepts are where y = 0. No x-intercepts means the equation has no real solutions.', 'The parabola stays entirely above or entirely below the x-axis.'] },
+      { id: 'q10', question: 'Completing the square changes x² + bx into a ___.', type: 'multiple_choice', choices: ['Linear expression', 'Perfect square trinomial', 'Constant', 'Difference of squares'], correctChoiceIndex: 1, hints: ['We add (b/2)² to get x² + bx + (b/2)² = (x + b/2)².', 'So we turn it into a perfect square (a trinomial that factors as a square).'] }
     ]
   },
   number_sense: {
@@ -311,7 +346,14 @@ const MATH_TOPICS = {
           'The opposite of a negative number is a positive number. So −(−5) is positive.',
           'Positive numbers sit to the right of negative numbers on the number line. So where is −(−5) compared to −5?'
         ]
-      }
+      },
+      { id: 'ns4', question: 'Which fraction is equivalent to 0.25?', type: 'multiple_choice', choices: ['1/4', '1/2', '2/5', '3/4'], correctChoiceIndex: 0, hints: ['0.25 = 25/100. Simplify: divide numerator and denominator by 25.', '25/100 = 1/4.'] },
+      { id: 'ns5', question: 'What is 15% of 80?', type: 'multiple_choice', choices: ['8', '12', '15', '20'], correctChoiceIndex: 1, hints: ['15% of 80 = 0.15 × 80.', '0.15 × 80 = 12.'] },
+      { id: 'ns6', question: 'The ratio 2 : 3 is the same as ___.', type: 'multiple_choice', choices: ['3 : 2', '4 : 6', '2/2 : 3/3', '1 : 2'], correctChoiceIndex: 1, hints: ['Ratios can be scaled: 2:3 = 4:6 (multiply both parts by 2).', '4:6 is equivalent to 2:3.'] },
+      { id: 'ns7', question: '|−7| equals ___.', type: 'multiple_choice', choices: ['−7', '7', '0', '±7'], correctChoiceIndex: 1, hints: ['Absolute value is the distance from 0, so it is never negative.', '|−7| = 7, |7| = 7.'] },
+      { id: 'ns8', question: 'Which is greater: −3 or −5?', type: 'multiple_choice', choices: ['−5', '−3', 'They are equal', 'Cannot compare'], correctChoiceIndex: 1, hints: ['On the number line, numbers to the right are greater.', '−3 is to the right of −5, so −3 > −5.'] },
+      { id: 'ns9', question: 'Convert 3/5 to a decimal.', type: 'multiple_choice', choices: ['0.35', '0.6', '0.53', '3.5'], correctChoiceIndex: 1, hints: ['Divide 3 by 5: 3 ÷ 5 = 0.6.', 'Or: 3/5 = 6/10 = 0.6.'] },
+      { id: 'ns10', question: '50% of a number is the same as ___.', type: 'multiple_choice', choices: ['Multiplying by 50', 'Dividing by 2', 'Adding 50', 'Subtracting half'], correctChoiceIndex: 1, hints: ['50% means 50/100 = 1/2.', '50% of a number = (1/2) × the number = the number ÷ 2.'] }
     ]
   }
 };
