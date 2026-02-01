@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThinkMath — Learn by Thinking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1 class="logo">ThinkMath</h1>
+      <p class="tagline">You've got this. We're here to help you think it through.</p>
+      <div class="streak-bar" id="streakBar" aria-hidden="true">
+        <span class="streak-label">Thinking streak</span>
+        <span class="streak-count" id="streakCount">0</span>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Home: choose experience -->
+      <section class="screen" id="homeScreen">
+        <h2>What would you like to do?</h2>
+        <div class="experience-grid">
+          <button type="button" class="experience-card" id="btnQuizExperience" aria-label="Quiz with scoring">
+            <span class="experience-icon" aria-hidden="true">📝</span>
+            <span class="experience-name">Quiz</span>
+            <span class="experience-desc">Practice with scored questions. Get feedback on each answer.</span>
+          </button>
+          <button type="button" class="experience-card" id="btnQnAExperience" aria-label="Ask the tutor">
+            <span class="experience-icon" aria-hidden="true">💬</span>
+            <span class="experience-name">Ask the tutor</span>
+            <span class="experience-desc">Type your own problem. Get hints and guidance—no answers given.</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Topic selection (for Quiz) -->
+      <section class="screen hidden" id="topicScreen">
+        <div class="topic-screen-header">
+          <button type="button" class="btn-back" id="btnTopicBack" aria-label="Back to home">← Home</button>
+          <h2>Choose a topic</h2>
+        </div>
+        <div class="topic-grid" id="topicGrid"></div>
+      </section>
+
+      <!-- Quiz -->
+      <section class="screen hidden" id="quizScreen">
+        <div class="quiz-header">
+          <button type="button" class="btn-back" id="btnBack" aria-label="Back to topics">← Back</button>
+          <span class="topic-badge" id="topicBadge"></span>
+          <span class="quiz-score" id="quizScore">Score: 0 / 0</span>
+          <span class="progress-text" id="progressText">Question 1</span>
+        </div>
+        <div class="question-card">
+          <p class="question-text" id="questionText"></p>
+          <div class="answer-area" id="answerArea"></div>
+          <div class="hint-area hidden" id="hintArea">
+            <p class="hint-label">Hint</p>
+            <p class="hint-text" id="hintText"></p>
+            <button type="button" class="btn-hint" id="btnNextHint">I need another nudge</button>
+          </div>
+          <div class="feedback-area hidden" id="feedbackArea">
+            <p class="feedback-text" id="feedbackText"></p>
+            <button type="button" class="btn-continue" id="btnContinue">Next question</button>
+          </div>
+        </div>
+        <div class="encouragement-bar">
+          <p class="encouragement" id="encouragement"></p>
+        </div>
+      </section>
+
+      <!-- Session complete -->
+      <section class="screen hidden" id="doneScreen">
+        <div class="done-card">
+          <h2>Nice work today</h2>
+          <p class="done-message" id="doneMessage"></p>
+          <p class="done-score" id="doneScore"></p>
+          <button type="button" class="btn-primary" id="btnTryAgain">Pick another topic</button>
+        </div>
+      </section>
+
+      <!-- Q&A: Ask the tutor -->
+      <section class="screen hidden" id="qnaScreen">
+        <div class="qna-header">
+          <button type="button" class="btn-back" id="btnQnaBack" aria-label="Back">← Back</button>
+          <span class="qna-title">Ask the tutor</span>
+        </div>
+        <p class="qna-intro">Tell me what you're working on. I’ll guide you with hints and questions—I won’t give the answer—you'll discover it yourself.</p>
+        <div class="chat-container">
+          <div class="chat-messages" id="chatMessages"></div>
+          <div class="chat-input-wrap">
+            <textarea id="chatInput" placeholder="e.g. How do I solve 2x + 5 = 15?" rows="2"></textarea>
+            <button type="button" class="btn-send" id="btnSend">Send</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

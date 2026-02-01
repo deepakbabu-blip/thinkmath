@@ -1,0 +1,16 @@
+# ThinkMath — Render Blueprint
+# Deploy: push this repo to GitHub/GitLab, then connect via Render Dashboard → New → Blueprint
+
+services:
+  - type: web
+    name: thinkmath
+    runtime: node
+
+    buildCommand: npm install
+    startCommand: npm start
+
+    # Render sets PORT automatically; server.js uses process.env.PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+        # Add your key in Render Dashboard after connecting the repo (Environment → GROQ_API_KEY)
