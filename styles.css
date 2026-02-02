@@ -581,6 +581,28 @@ body {
   filter: brightness(1.1);
 }
 
+.btn-send:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: none;
+}
+
+.qna-session-banner {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(180, 80, 80, 0.15);
+  border: 1px solid rgba(180, 80, 80, 0.4);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.chat-input-wrap textarea:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 @media (max-width: 480px) {
   .app {
     padding: 1rem;

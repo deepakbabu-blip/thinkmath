@@ -80,6 +80,11 @@
       showScreen(qnaScreen);
       chatMessages.innerHTML = '';
       state.qnaMessages = [];
+      state.sessionEnded = false;
+      chatInput.disabled = false;
+      btnSend.disabled = false;
+      const sessionBanner = document.getElementById('qnaSessionBanner');
+      if (sessionBanner) sessionBanner.remove();
       const welcome = document.createElement('div');
       welcome.className = 'msg msg-tutor';
       welcome.innerHTML = '<p>Hi! I\'m here to help you think through your math—not to give answers, but to guide you with hints and questions. What would you like to work on?</p>';
@@ -337,6 +342,7 @@
   }
 
   async function sendQnaMessage() {
+    if (state.sessionEnded) return;
     const text = (chatInput.value || '').trim();
     if (!text) return;
     chatInput.value = '';
@@ -366,6 +372,21 @@
       const reply = (data.reply || '').trim() || "I'm not sure how to respond—try asking in another way.";
       state.qnaMessages.push({ role: 'assistant', content: reply });
       appendMessage('tutor', reply);
+
+      if (data.sessionEnded) {
+        state.sessionEnded = true;
+        chatInput.disabled = true;
+        btnSend.disabled = true;
+        chatInput.placeholder = 'This session has ended.';
+        const banner = document.createElement('div');
+        banner.id = 'qnaSessionBanner';
+        banner.className = 'qna-session-banner';
+        banner.setAttribute('role', 'alert');
+        banner.textContent = 'This session has ended. Go back to start a new one when you\'re ready.';
+        const wrap = chatMessages.parentNode && chatMessages.parentNode.querySelector('.chat-input-wrap');
+        if (wrap) chatMessages.parentNode.insertBefore(banner, wrap);
+        else chatMessages.parentNode.appendChild(banner);
+      }
     } catch (err) {
       removeMessage(loadingEl);
       appendMessage('tutor', "Couldn't reach the tutor. Make sure the server is running (npm start) and GROQ_API_KEY is set in .env.");
